@@ -14,12 +14,15 @@ import pandas as pd
 
 
 df = pd.read_excel('wage2.xls', header = None)
-n = df.cou
+n = len(df.index)
 print(n)
 #index = list(range(n))
 df.columns = ['wage', 'hours', 'iq', 'kww', 'educ', 'exper', 'tenure', 'age', 'married', 'black', 'south', 'urban', 'sibs', 'brthord', 'meduc', 'feduc', 'lwage']
-#df.set_index(index, inplace=True)
+df.reset_index()
+df.reindex(index=range(0,n))
+
+
      
 df.dropna(inplace=True)
 
-#print(df.head(12))
+print(df.head(12))
