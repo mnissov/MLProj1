@@ -8,6 +8,9 @@ import numpy as np
 import xlrd
 import pandas as pd
 
+from matplotlib.pyplot import figure, plot, title, xlabel, ylabel, show
+from scipy.linalg import svd
+
 # Load xls sheet with data
 #dataset = xlrd.open_workbook('wage2.xls').sheet_by_index(0)
 #data = pd.get_dummies(dataset)
@@ -34,3 +37,20 @@ for i, col_id in enumerate(range(1,8)):
     
 N = len(y)
 M = len(attributeNames)
+
+# Subtract mean value from data
+Y = X - np.ones((N,1))*X.mean(0)
+
+# PCA by computing SVD of Y
+U,S,V = svd(Y,full_matrices=False)
+
+# Compute variance explained by principal components
+rho = (S*S) / (S*S).sum() 
+
+# Plot variance explained
+figure()
+plot(range(1,len(rho)+1),rho,'o-')
+title('Variance explained by principal components');
+xlabel('Principal component');
+ylabel('Variance explained');
+show()
