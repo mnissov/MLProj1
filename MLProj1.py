@@ -7,6 +7,7 @@ Created on Mon Feb 12 09:46:06 2018
 import numpy as np
 import xlrd
 import pandas as pd
+import math
 
 from matplotlib.pyplot import figure, plot, title, xlabel, ylabel, show
 from scipy.linalg import svd
@@ -57,3 +58,9 @@ show()
 
 
 plot(X, y, 'o')
+title('Wage vs Attributres')
+xlabel('Attributes')
+ylabel('Wage')
+legend(attributeNames, loc=4)
+show()
+
