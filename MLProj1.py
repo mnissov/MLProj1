@@ -54,3 +54,6 @@ title('Variance explained by principal components');
 xlabel('Principal component');
 ylabel('Variance explained');
 show()
+
+
+plot(X, y, 'o')
