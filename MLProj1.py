@@ -14,21 +14,23 @@ import pandas as pd
 
 
 df = pd.read_excel('modified.xls', header = None)
+doc = xlrd.open_workbook('modified.xls').sheet_by_index(0)
+
+attributeNames = doc.row_values(0, 1, 8)
 n = len(df.index)
-#print(n)
-#index = list(range(n))
-#df.columns = ['wage', 'hours', 'iq', 'educ', 'exper', 'tenure', 'age', 'black']
 df.reset_index()
 df.reindex(index=range(0,n))
      
 df.dropna(inplace=True)
 dfMatrix = df.as_matrix()
 
-#print(dfMatrix)
-
 y = dfMatrix[1:,0]
 yMatrix = np.mat(y)
 
-X = np.mat(np.empty((n,7))
-for i in range(7):
-    X[i,:] = np.matrix(dfMatrix[)
+X = np.mat(np.empty((n-1,7)))
+
+for i, col_id in enumerate(range(1,8)):
+    X[:,i] = np.matrix(doc.col_values(col_id, 1, n)).T
+    
+N = len(y)
+M = len(attributeNames)
