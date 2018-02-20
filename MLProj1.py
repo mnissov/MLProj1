@@ -9,9 +9,9 @@ import xlrd
 import pandas as pd
 import math
 
-from matplotlib.pyplot import figure, plot, title, xlabel, ylabel, show, boxplot
+from matplotlib.pyplot import figure, legend, subplot, plot, title, imshow, yticks, cm, xlabel, ylabel, show, grid, boxplot
 from scipy.linalg import svd
-
+from scipy.io import loadmat
 # Load xls sheet with data
 #dataset = xlrd.open_workbook('wage2.xls').sheet_by_index(0)
 #data = pd.get_dummies(dataset)
