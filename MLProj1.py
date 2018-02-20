@@ -2,7 +2,7 @@
 """
 Created on Mon Feb 12 09:46:06 2018
 
-@author: Emma
+@author: morten
 """
 import numpy as np
 import xlrd
