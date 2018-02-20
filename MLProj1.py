@@ -38,7 +38,3 @@ for i, col_id in enumerate(range(1,8)):
     
 N = len(y)
 M = len(attributeNames)
-
-
-
-
